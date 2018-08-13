@@ -15,10 +15,9 @@ import datetime
 
 class AliyunEcs(object):
     def __init__(self):
-        self.ram_role_arn_credential = RamRoleArnCredential('LTAIfu2302ttWJwj', 'ajuLGBtgvZAHI0sYZyGt91Ko8kEtv9', 'acs:ram::1141210562526049:role/ramecs', 'ramecs')
+        self.ram_role_arn_credential = RamRoleArnCredential('*******', '**********', '********', '*****')
         self.acs_client = AcsClient(region_id='cn-beijing', credential=self.ram_role_arn_credential)
-# ram_role_arn_credential = RamRoleArnCredential('LTAIfu2302ttWJwj', 'ajuLGBtgvZAHI0sYZyGt91Ko8kEtv9', 'acs:ram::1141210562526049:role/ramecs', 'ramecs')
-# acs_client = AcsClient(region_id='cn-beijing', credential=ram_role_arn_credential)
+
     def InfoList(self):
         request = DescribeInstancesRequest.DescribeInstancesRequest()
         request.set_PageSize(100)
@@ -29,23 +28,6 @@ class AliyunEcs(object):
 
     def Ecsinfo(self):
         #遍历获取到的结果
-        '''
-        {'SerialNumber': '2468aff9-b44e-432a-b30d-03859592540c', 'PublicIpAddress': {'IpAddress': []}, 
-        'SpotPriceLimit': 0.0, 'CreationTime': '2018-02-05T06:51Z', 'RegionId': 'cn-beijing', 'Description': 'tvgateway_test', 
-        'NetworkInterfaces': {'NetworkInterface': [{'MacAddress': '00:16:3e:0a:23:39', 'PrimaryIpAddress': '192.168.102.154', 
-        'NetworkInterfaceId': 'eni-2ze2cmj721802z9xjxro'}]}, 'IoOptimized': True, 'StoppedMode': 'Not-applicable', 'Memory': 1024, 
-        'InternetMaxBandwidthOut': 0, 'InstanceTypeFamily': 'ecs.xn4', 'GPUSpec': '', 'Status': 'Stopped', 'StartTime': '2018-02-05T07:05Z', 
-        'ZoneId': 'cn-beijing-e', 'InstanceChargeType': 'PrePaid', 'VlanId': '', 'AutoReleaseTime': '', 'InternetChargeType': '', 
-        'Tags': {'Tag': [{'TagValue': '', 'TagKey': 'dev'}]}, 'SpotStrategy': 'NoSpot', 'OperationLocks': {'LockReason': []}, 
-        'HostName': 'tvgateway-test', 'ResourceGroupId': 'rg-aekz5bt6czidtdq', 'SaleCycle': '', 'DedicatedHostAttribute': {'DedicatedHostId': '', 'DedicatedHostName': ''}, 
-        'InternetMaxBandwidthIn': -1, 'InstanceType': 'ecs.xn4.small', 'SecurityGroupIds': {'SecurityGroupId': ['sg-2ze2ciofo1tuo0452xh2']}, 
-        'VpcAttributes': {'PrivateIpAddress': {'IpAddress': ['192.168.102.154']}, 'NatIpAddress': '', 'VSwitchId': 'vsw-2zevp6jgoywfhtc4j7baa', 
-        'VpcId': 'vpc-2zeho9i16trggvxmhwipf'}, 'InstanceName': 'del_tvgateway_dev', 'Recyclable': False, 'ClusterId': '', 'Cpu': 1,
-         'GPUAmount': 0, 'OSType': 'linux', 'ImageId': 'm-2ze8d4bgjt9168bmdyfj', 'ExpiredTime': '2018-08-29T16:00Z', 'DeviceAvailable': True, 
-         'InnerIpAddress': {'IpAddress': []}, 'InstanceNetworkType': 'vpc', 'OSName': 'CentOS  7.3 64位', 'InstanceId': 'i-2ze0q1y5411u30f464qi', 
-         'EipAddress': {'InternetChargeType': 'PayByBandwidth', 'IpAddress': '39.106.182.84', 'Bandwidth': 1, 'IsSupportUnassociate': True, 
-         'AllocationId': 'eip-2zeaahd7kosc5yenxgovm'}}
-        '''
         global ecs_list
         info_list = self.InfoList()
         ecs_list = []
