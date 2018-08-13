@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block page_content %}
+
+<!--<div class="page-header">-->
+ <!--<h1>Login</h1>-->
+<!--</div>-->
+    <link rel="stylesheet" href="https://v3.bootcss.com/examples/signin/signin.css" />
+    <style>
+    body {
+        background-image: url(/static/background.jpg);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-attachment: fixed;
+
+    }
+    .form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+    .control-label{ display: none;}
+
+    .btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+   }
+
+    .btn-block {
+
+    }
+    .btn-default {
+    padding: 10px 16px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    border-radius: 6px;
+
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #2e6da4;
+    display: block;
+    width: 100%;
+}
+    .btn-primary {
+
+}
+    </style>
+
+    <form action="/cmdb/login" method="post"  class="form-signin" style="width: 300px;height: 160px;position: fixed;left: 50%;top: 50%;margin-left: -150px;margin-top: -220px">
+
+        <h1 align="center">CMDB运维平台</h1>
+        <!--<h2 class="form-signin-heading">登录</h2>-->
+        <!--{{ form.csrf_token }}-->
+        <!--{{ wtf.quick_form(form) }}-->
+        <label for="name" class="sr-only">name</label>
+        <input type="text" id="name" name="name" class="form-control" placeholder="name" required autofocus>
+        <label for="pwd" class="sr-only">Password</label>
+        <input type="password" id="pwd" name="pwd" class="form-control" placeholder="Password" required>
+        <button class="btn btn-lg btn-primary btn-block" type="submit" name="Login In">登录</button>
+        {{ form.csrf_token }}
+    </form>
+
+{% endblock %}
+
