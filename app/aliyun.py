@@ -57,7 +57,7 @@ class AliyunEcs(object):
 
 class AliyunRds(object):
     def __init__(self):
-        self.ram_role_arn_credential = RamRoleArnCredential('LTAIfu2302ttWJwj', 'ajuLGBtgvZAHI0sYZyGt91Ko8kEtv9', 'acs:ram::1141210562526049:role/ramecs', 'ramecs')
+        self.ram_role_arn_credential = RamRoleArnCredential('******', '*****', '*****', '****')
         self.acs_client = AcsClient(region_id='cn-beijing', credential=self.ram_role_arn_credential)
 
     #获得时间需要备份的时间范围
